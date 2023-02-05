@@ -1,0 +1,21 @@
+@import url(../../styles/Colors.css);
+
+.input {
+    outline: none;
+    width: 100%;
+    padding: 10px 12px;
+    font: inherit;
+    color: var(--Marine-blue);
+    border-radius: 7px;
+    border: 1px solid var(--Light-gray);
+    cursor: pointer;
+}
+
+.input:focus,
+.input:active {
+    border-color: var(--Purplish-blue);
+}
+
+.input:invalid {
+    border-color: var(--Strawberry-red);
+}

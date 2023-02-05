@@ -1,0 +1,21 @@
+@import url(./Colors.css);
+
+.App {
+    background-color: var(--White);
+    height: 600px;
+    width: 940px;
+    margin: calc(50vh - 300px) auto 0;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+}
+
+.stepTitle {
+    color: var(--Marine-blue);
+    margin-bottom: 10px;
+}
+
+.stepDescription {
+    color: var(--Cool-gray);
+    margin-bottom: 35px;
+}

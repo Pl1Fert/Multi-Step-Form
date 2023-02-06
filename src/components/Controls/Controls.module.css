@@ -1,0 +1,41 @@
+@import url(../../styles/Colors.css);
+
+.controls {
+    width: 100%;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button[type="button"],
+button[type="confirm"] {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .3s linear;
+    font: inherit;
+}
+
+.btnBack {
+    color: var(--Cool-gray);
+}
+
+.btnBack:hover {
+    color: var(--Marine-blue);
+}
+
+.btnNext, .btnConfirm {
+    margin-left: auto;
+    padding: 15px 25px;
+    background-color: var(--Marine-blue) !important;
+    color: var(--White);
+    border-radius: 7px;
+}
+
+.btnNext:hover, .btnConfirm:hover {
+    background-color: var(--Purplish-blue) !important;
+}

@@ -5,6 +5,7 @@ import SelectPlan from "../steps/SelectPlan/SelectPlan";
 import AddOns from "../steps/AddOns/AddOns";
 import Summary from "../steps/Summary/Summary";
 import classes from "./Display.module.css";
+import Controls from "../Controls/Controls";
 
 const Display = () => {
     const activeStep = useSelector((state) => state.steps.step);
@@ -15,6 +16,7 @@ const Display = () => {
             {activeStep === 2 && <SelectPlan />}
             {activeStep === 3 && <AddOns />}
             {activeStep === 4 && <Summary />}
+            <Controls/>
         </div>
     );
 };

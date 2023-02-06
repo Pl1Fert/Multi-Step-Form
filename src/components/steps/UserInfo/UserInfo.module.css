@@ -1,0 +1,13 @@
+@import url(../../../styles/Colors.css);
+
+.label {
+    font-size: 14px;
+    color: var(--Marine-blue);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    margin-top: 7px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,6 @@
+.display {
+    position: relative;
+    max-width: 460px;
+    min-width: 460px;
+    padding-top: 30px;
+}

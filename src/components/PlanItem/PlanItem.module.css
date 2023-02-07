@@ -1,0 +1,50 @@
+@import url(../../styles/Colors.css);
+
+.planItem {
+    width: 135px;
+    height: 180px;
+    border-radius: 5px;
+    border: 1px solid var(--Cool-gray);
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.planDescription {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 30px;
+}
+
+.planItem:hover {
+    border-color: var(--Purplish-blue);
+}
+
+.activeItem {
+    border-color: var(--Purplish-blue);
+    background-color: var(--Magnolia);
+}
+
+.planImg {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.planTitle {
+    color: var(--Marine-blue);
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.planPrice {
+    color: var(--Cool-gray);
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.freeMonths {
+    color: var(--Marine-blue);
+    font-size: 12px;
+}

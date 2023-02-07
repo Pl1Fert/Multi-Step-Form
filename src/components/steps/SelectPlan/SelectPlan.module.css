@@ -1,0 +1,40 @@
+.plansContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selectPlanContainer {
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Alabaster);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.planType {
+    color: var(--Cool-gray);
+}
+
+.activePlanType {
+    color: var(--Marine-blue);
+}
+
+input[type="radio"] {
+    outline: none;
+    margin: 0;
+    cursor: pointer;
+}
+
+.radios {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 15px;
+    background-color: var(--Marine-blue);
+    padding: 4px 2px;
+    width: 40px;
+    border-radius: 15px;
+}

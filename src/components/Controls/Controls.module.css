@@ -22,6 +22,7 @@ button[type="confirm"] {
 
 .btnBack {
     color: var(--Cool-gray);
+    padding: 10px;
 }
 
 .btnBack:hover {

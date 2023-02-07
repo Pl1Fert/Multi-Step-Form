@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MyInput from "../../MyInput/MyInput";
 import classes from "./UserInfo.module.css";
@@ -17,8 +17,11 @@ const UserInfo = () => {
         });
 
         //TODO: handle next step without empty fields
-        dispatch(updateUserInfo(data));
     };
+
+    useEffect(() => {
+        dispatch(updateUserInfo(data));
+    }, [data]);
 
     return (
         <div>
@@ -34,7 +37,7 @@ const UserInfo = () => {
                 placeholder="e.g. Stephen King"
                 name="name"
                 value={data.name}
-                onChange={onChange}
+                onChange={(e) => onChange(e)}
             />
             <label htmlFor="email" className={classes.label}>
                 Email Address
@@ -44,7 +47,7 @@ const UserInfo = () => {
                 placeholder="e.g. stephenking@lorem.com"
                 name="email"
                 value={data.email}
-                onChange={onChange}
+                onChange={(e) => onChange(e)}
             />
             <label htmlFor="phone" className={classes.label}>
                 Phone Number
@@ -54,7 +57,7 @@ const UserInfo = () => {
                 placeholder="e.g. +1 234 567 890"
                 name="phone"
                 value={data.phone}
-                onChange={onChange}
+                onChange={(e) => onChange(e)}
             />
         </div>
     );

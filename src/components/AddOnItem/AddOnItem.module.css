@@ -1,0 +1,59 @@
+@import url(../../styles/Colors.css);
+
+.addon {
+    width: 450px;
+    height: 80px;
+    border: 1px solid var(--Cool-gray);
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.addon:hover {
+    border-color: var(--Purplish-blue);
+}
+
+.activeAddon {
+    border-color: var(--Purplish-blue);
+    background-color: var(--Magnolia);
+}
+
+.addonTitle {
+    color: var(--Marine-blue);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.checkmarkBlock {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--Cool-gray);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activeCheckmarBlock {
+    background-color: var(--Purplish-blue);
+}
+
+.addonDescription {
+    color: var(--Cool-gray);
+    font-size: 14px;
+}
+
+.addonPriceBlock {
+    margin-left: auto;
+}
+
+.addonPrice{
+    color: var(--Purplish-blue);
+    font-size: 15px;
+}

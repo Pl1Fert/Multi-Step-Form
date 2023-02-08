@@ -5,11 +5,14 @@ import { changePlanId } from "../../redux/slices/planSlice";
 import classes from "./PlanItem.module.css";
 
 const PlanItem = ({ plan, img }) => {
-    const { planId, planType} = useSelector((state) => state.plan);
+    const { planId, planType } = useSelector((state) => state.plan);
     const dispatch = useDispatch();
 
     const freeMonths = getFreeMonthsPerYearAmount() || 0;
-    const price = planType === "yearly" ? getYearlyPrice(plan.price) : plan.price;
+    const price =
+        planType === "yearly"
+            ? getYearlyPrice(plan.pricePerMonth)
+            : plan.pricePerMonth;
 
     return (
         <div

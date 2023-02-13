@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import classes from "./Controls.module.css";
 import { nextStep, previousStep } from "../../redux/slices/stepSlice";
 
-const Controls = () => {
+const Controls = ({isConfirmed, setIsConfirmed}) => {
     const activeStep = useSelector((state) => state.steps);
     const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ const Controls = () => {
                 <button
                     type="confirm"
                     className={classes.btnConfirm}
-                    onClick={() => {}}
+                    onClick={() => {setIsConfirmed(!isConfirmed)}}
                 >
                     Confirm
                 </button>

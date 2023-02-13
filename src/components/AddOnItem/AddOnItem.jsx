@@ -1,25 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import classes from "./AddOnItem.module.css";
 import checkmark from "../../assets/images/icon-checkmark.svg";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getYearlyPrice } from "../../utils";
-import { addAddon, removeAddon } from "../../redux/slices/addonSlice";
 
-const AddOnItem = ({ addon }) => {
-    const [isChecked, setIsChecked] = useState(false);
+const AddOnItem = ({ addon, onCheckedChange, isChecked }) => {
     const planType = useSelector((state) => state.plan.planType);
-    const addons = useSelector(state => state.addons);
-    const dispatch = useDispatch();
     const price =
-        planType === "yearly" ? getYearlyPrice(addon.pricePerMonth) : addon.pricePerMonth;
+        planType === "yearly"
+            ? getYearlyPrice(addon.pricePerMonth)
+            : addon.pricePerMonth;
 
-    useEffect(() => {
-        if (isChecked === true) {
-            dispatch(addAddon(addon.id));
-        } else {
-            dispatch(removeAddon(addon.id));
-        }
-    }, [isChecked]);
+    const onClickHandler = () => {
+        onCheckedChange(addon.id, !isChecked);
+    };
 
     return (
         <div
@@ -28,9 +22,7 @@ const AddOnItem = ({ addon }) => {
                     ? `${classes.addon} + ${classes.activeAddon}`
                     : `${classes.addon}`
             }
-            onClick={() => {
-                setIsChecked(!isChecked);
-            }}
+            onClick={onClickHandler}
         >
             <div
                 className={

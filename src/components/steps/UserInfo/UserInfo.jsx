@@ -24,7 +24,7 @@ const UserInfo = () => {
     }, [data]);
 
     return (
-        <div>
+        <div className="userInfoStep">
             <h1 className="stepTitle">Personal info</h1>
             <p className="stepDescription">
                 Please provide your name, email address, and phone number.

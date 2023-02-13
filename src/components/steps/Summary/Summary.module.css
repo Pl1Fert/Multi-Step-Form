@@ -1,0 +1,56 @@
+@import url(../../../styles/Colors.css);
+
+.summaryData {
+    background-color: var(--Magnolia);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.planData,
+.addon,
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.planData {
+    border-bottom: 1px solid var(--Light-gray);
+    padding-bottom: 25px;
+    color: var(--Marine-blue);
+    font-weight: 500;
+}
+
+.planPrice {
+    font-weight: 700;
+}
+
+.addon {
+    margin-top: 20px;
+}
+
+.addonName {
+    color: var(--Cool-gray);
+    font-size: 14px;
+}
+
+.addonPrice {
+    color: var(--Marine-blue);
+    font-size: 15px;
+}
+
+.total {
+    padding: 0 20px;
+    margin-top: 30px;
+}
+
+.totalInfo {
+    color: var(--Cool-gray);
+    font-size: 14px;
+}
+
+.totalPrice {
+    color: var(--Purplish-blue);
+    font-size: 18px;
+    font-weight: 700;
+}

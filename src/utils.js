@@ -1,6 +1,6 @@
 const FREE_MONTHS_PER_YEAR = 2;
 
-export const planDatabase = [
+export const plansDatabase = [
     { id: 1, name: "Arcade", img: "iconArcade", pricePerMonth: 9 },
     { id: 2, name: "Advanced", img: "iconAdvanced", pricePerMonth: 12 },
     { id: 3, name: "Pro", img: "iconPro", pricePerMonth: 15 },
@@ -40,5 +40,5 @@ export const getAddonById = (id) => {
 };
 
 export const getPlanById = (id) => {
-    return planDatabase.find((item) => item.id === id);
+    return plansDatabase.find((item) => item.id === id);
 };

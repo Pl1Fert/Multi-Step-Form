@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./SelectPlan.module.css";
-import { planDatabase } from "../../../utils";
+import { plansDatabase } from "../../../utils";
 import PlanItem from "../../PlanItem/PlanItem";
 import iconArcade from "../../../assets/images/icon-arcade.svg";
 import iconAdvanced from "../../../assets/images/icon-advanced.svg";
@@ -19,13 +19,13 @@ const SelectPlan = () => {
     const dispatch = useDispatch();
 
     return (
-        <div>
+        <div className="selectPlanStep">
             <h1 className="stepTitle">Select your plan</h1>
             <p className="stepDescription">
                 You have the option of monthly or yearly billing.
             </p>
             <div className={classes.plansContainer}>
-                {planDatabase.map((item) => (
+                {plansDatabase.map((item) => (
                     <PlanItem
                         key={item.id}
                         plan={item}

@@ -49,3 +49,12 @@ input:checked {
     width: 40px;
     border-radius: 15px;
 }
+
+@media screen and (max-width:950px){
+    .plansContainer{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

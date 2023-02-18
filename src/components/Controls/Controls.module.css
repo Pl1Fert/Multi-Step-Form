@@ -40,3 +40,18 @@ button[type="confirm"] {
 .btnNext:hover, .btnConfirm:hover {
     background-color: var(--Purplish-blue) !important;
 }
+
+@media screen and (max-width:950px){
+    .controls {
+        background-color: var(--White);
+        bottom: 0;
+        padding: 20px;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width:500px){
+    .controls {
+        border-radius: 0;
+    }
+}

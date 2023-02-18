@@ -57,3 +57,19 @@
     color: var(--Purplish-blue);
     font-size: 15px;
 }
+
+@media screen and (max-width:950px){
+    .addon{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:400px){
+    .addonDescription {
+        font-size: 12px;
+    }
+
+    .addonTitle {
+        font-size: 14px;
+    }
+}

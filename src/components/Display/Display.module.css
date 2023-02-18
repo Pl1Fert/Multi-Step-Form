@@ -3,4 +3,16 @@
     max-width: 460px;
     min-width: 460px;
     padding-top: 30px;
+    background-color: var(--White);
+    border-radius: 10px;
+}
+
+@media screen and (max-width:950px){
+    .display {
+        margin: calc(50vh - 300px) auto 0;
+        padding: 20px;
+        position: initial;
+        z-index: 2;
+        min-width: 0;
+    }
 }

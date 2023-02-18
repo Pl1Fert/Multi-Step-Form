@@ -44,3 +44,29 @@
     font-weight: 500;
     letter-spacing: 1px;
 }
+
+@media screen and (max-width:950px){
+    .sidebar {
+        width: 100%;
+        background-image: url(../../assets/images/bg-sidebar-mobile.svg);
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        height: 170px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .sidebarItemInfo {
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px){
+    .sidebar {
+        border-radius: 0;
+    }
+}

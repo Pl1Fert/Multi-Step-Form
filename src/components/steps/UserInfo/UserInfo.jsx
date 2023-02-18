@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MyInput from "../../MyInput/MyInput";
 import classes from "./UserInfo.module.css";
 import { updateUserInfo } from "../../../redux/slices/userInfoSlice";
+import Controls from "../../Controls/Controls";
+import { isValidPhoneNumber } from "libphonenumber-js";
+import swal from "sweetalert";
 
 const UserInfo = () => {
     const userInfo = useSelector((state) => state.userInfo);
@@ -15,13 +18,56 @@ const UserInfo = () => {
             ...data,
             [e.target.name]: e.target.value,
         });
-
-        //TODO: handle next step without empty fields
     };
 
-    useEffect(() => {
+    const isInfoValid = (data) => {
+        let regexp;
+        for (let key in data) {
+            switch (key) {
+                case "name":
+                    continue;
+                case "email":
+                    regexp =
+                        /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+                    if (regexp.test(data[key]) === false) return false;
+
+                    continue;
+                case "phone":
+                    if (isValidPhoneNumber(data[key]) === false) return false;
+
+                    continue;
+                default:
+                    return false;
+            }
+        }
+
+        return true;
+    };
+
+    const nexthandler = () => {
+        if (Object.values(data).some((it) => !it)) {
+            swal({
+                title: "Oops...",
+                text: "Enter your name, email and phone number!",
+                icon: "error",
+                button: "Close",
+            });
+
+            return false;
+        } else if (isInfoValid(data) === false) {
+            swal({
+                title: "Oops...",
+                text: "Enter your name, email and phone number correctly!",
+                icon: "error",
+                button: "Close",
+            });
+
+            return false;
+        }
+
         dispatch(updateUserInfo(data));
-    }, [data]);
+        return true;
+    };
 
     return (
         <div className="userInfoStep">
@@ -59,6 +105,7 @@ const UserInfo = () => {
                 value={data.phone}
                 onChange={(e) => onChange(e)}
             />
+            <Controls handler={nexthandler} />
         </div>
     );
 };

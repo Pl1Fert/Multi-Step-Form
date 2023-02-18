@@ -2,8 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { addonsDataBase, getPlanById, getYearlyPrice } from "../../../utils";
 import classes from "./Summary.module.css";
+import Controls from "../../Controls/Controls";
 
-const Summary = () => {
+const Summary = ({isConfirmed, setIsConfirmed}) => {
     const plan = useSelector((state) => state.plan);
     const addonsState = useSelector((state) => state.addons);
     const addons = addonsDataBase.filter((addon) =>
@@ -85,6 +86,7 @@ const Summary = () => {
                     ${getTotalPrice()}/{periodLabel}
                 </p>
             </div>
+            <Controls isConfirmed={isConfirmed} setIsConfirmed={setIsConfirmed}/>
         </div>
     );
 };

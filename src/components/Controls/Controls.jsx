@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import classes from "./Controls.module.css";
 import { nextStep, previousStep } from "../../redux/slices/stepSlice";
 
-const Controls = ({isConfirmed, setIsConfirmed}) => {
-    const activeStep = useSelector((state) => state.steps);
+const Controls = ({ isConfirmed, setIsConfirmed, handler }) => {
+    const activeStep = useSelector((state) => state.steps.step);
     const dispatch = useDispatch();
 
     const backButtonHandler = () => {
@@ -12,12 +12,16 @@ const Controls = ({isConfirmed, setIsConfirmed}) => {
     };
 
     const nextButtonHandler = () => {
-        dispatch(nextStep(activeStep));
+        const success = handler();
+
+        if (success) {
+            dispatch(nextStep(activeStep));
+        }
     };
 
     return (
         <div className={classes.controls}>
-            {activeStep.step !== 1 && (
+            {activeStep !== 1 && (
                 <button
                     type="button"
                     className={classes.btnBack}
@@ -26,11 +30,13 @@ const Controls = ({isConfirmed, setIsConfirmed}) => {
                     Go Back
                 </button>
             )}
-            {activeStep.step === 4 ? (
+            {activeStep === 4 ? (
                 <button
                     type="confirm"
                     className={classes.btnConfirm}
-                    onClick={() => {setIsConfirmed(!isConfirmed)}}
+                    onClick={() => {
+                        setIsConfirmed(!isConfirmed);
+                    }}
                 >
                     Confirm
                 </button>

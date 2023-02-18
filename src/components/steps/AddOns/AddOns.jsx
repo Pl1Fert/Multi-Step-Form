@@ -4,6 +4,7 @@ import { addonsDataBase } from "../../../utils";
 import AddOnItem from "../../AddOnItem/AddOnItem";
 import classes from "./AddOns.module.css";
 import { useSelector, useDispatch } from "react-redux";
+import Controls from "../../Controls/Controls";
 
 const AddOns = () => {
     const addons = useSelector((state) => state.addons);
@@ -28,6 +29,7 @@ const AddOns = () => {
                     />
                 ))}
             </div>
+            <Controls handler={() => true} />
         </div>
     );
 };

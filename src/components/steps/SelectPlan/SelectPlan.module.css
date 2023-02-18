@@ -23,9 +23,20 @@
 }
 
 input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     outline: none;
     margin: 0;
     cursor: pointer;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 6px solid var(--Marine-blue);
+}
+
+input:checked {
+    border-color: var(--White);
 }
 
 .radios {

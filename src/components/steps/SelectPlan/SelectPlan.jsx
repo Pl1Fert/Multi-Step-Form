@@ -7,6 +7,8 @@ import iconAdvanced from "../../../assets/images/icon-advanced.svg";
 import iconPro from "../../../assets/images/icon-pro.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { changePlanType } from "../../../redux/slices/planSlice";
+import Controls from "../../Controls/Controls";
+import swal from "sweetalert";
 
 const SelectPlan = () => {
     const images = {
@@ -15,8 +17,23 @@ const SelectPlan = () => {
         iconPro,
     };
 
-    const planType = useSelector((state) => state.plan.planType);
+    const planState = useSelector((state) => state.plan);
     const dispatch = useDispatch();
+
+    const nexthandler = () => {
+        if (planState.planId !== null) {
+            return true;
+        }
+
+        swal({
+            title: "Oops...",
+            text: "Choose a plan!",
+            icon: "error",
+            button: "Close",
+        });
+
+        return false;
+    };
 
     return (
         <div className="selectPlanStep">
@@ -36,7 +53,7 @@ const SelectPlan = () => {
             <div className={classes.selectPlanContainer}>
                 <p
                     className={
-                        planType === "monthly"
+                        planState.planType === "monthly"
                             ? `${classes.planType} + ${classes.activePlanType}`
                             : `${classes.planType}`
                     }
@@ -44,12 +61,11 @@ const SelectPlan = () => {
                     Monthly
                 </p>
                 <div className={classes.radios}>
-                    {" "}
                     <input
                         type="radio"
                         name="planType"
                         value="monthly"
-                        defaultChecked={planType === "monthly"}
+                        defaultChecked={planState.planType === "monthly"}
                         onClick={(e) =>
                             dispatch(changePlanType(e.target.value))
                         }
@@ -58,7 +74,7 @@ const SelectPlan = () => {
                         type="radio"
                         name="planType"
                         value="yearly"
-                        defaultChecked={planType === "yearly"}
+                        defaultChecked={planState.planType === "yearly"}
                         onClick={(e) =>
                             dispatch(changePlanType(e.target.value))
                         }
@@ -66,7 +82,7 @@ const SelectPlan = () => {
                 </div>
                 <p
                     className={
-                        planType === "yearly"
+                        planState.planType === "yearly"
                             ? `${classes.planType} + ${classes.activePlanType}`
                             : `${classes.planType}`
                     }
@@ -74,6 +90,7 @@ const SelectPlan = () => {
                     Yearly
                 </p>
             </div>
+            <Controls handler={nexthandler} />
         </div>
     );
 };

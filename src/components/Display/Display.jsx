@@ -5,7 +5,6 @@ import SelectPlan from "../steps/SelectPlan/SelectPlan";
 import AddOns from "../steps/AddOns/AddOns";
 import Summary from "../steps/Summary/Summary";
 import classes from "./Display.module.css";
-import Controls from "../Controls/Controls";
 import Gratitude from "../Gratitude/Gratitude";
 
 const Display = () => {
@@ -14,16 +13,19 @@ const Display = () => {
 
     return (
         <div className={classes.display}>
-            {isConfirmed === true ? <Gratitude/> : (
+            {isConfirmed === true ? (
+                <Gratitude />
+            ) : (
                 <>
                     {activeStep === 1 && <UserInfo />}
                     {activeStep === 2 && <SelectPlan />}
                     {activeStep === 3 && <AddOns />}
-                    {activeStep === 4 && <Summary />}
-                    <Controls
-                        isConfirmed={isConfirmed}
-                        setIsConfirmed={setIsConfirmed}
-                    />
+                    {activeStep === 4 && (
+                        <Summary
+                            isConfirmed={isConfirmed}
+                            setIsConfirmed={setIsConfirmed}
+                        />
+                    )}
                 </>
             )}
         </div>

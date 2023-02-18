@@ -20,3 +20,20 @@
     color: var(--Cool-gray);
     margin-bottom: 35px;
 }
+
+.swal-button {
+    background-color: var(--Marine-blue);
+    transition: all .3s linear;
+}
+
+.swal-button:hover {
+    background-color: var(--Purplish-blue) !important;
+}
+
+.swal-title {
+    color: var(--Marine-blue);
+}
+
+.swal-text {
+    color: var(--Cool-gray);
+}
